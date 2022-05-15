@@ -249,10 +249,10 @@ class SolveQP(bezier):
         A_y, b_y = self.get_Aeq_and_Beq(is_y=1)
         from nearestPD import nearestPD
 
-        from scipy.io import savemat
-        savemat('QPsolver.mat',
-                {'P': P, 'q': q, 'G_x': G_x, 'h_x': h_x, 'G_y': G_y, 'h_y': h_y, 'A_x': A_x, 'b_x': b_x, 'A_y': A_y,
-                 'b_y': b_y})
+        # from scipy.io import savemat
+        # savemat('QPsolver.mat',
+        #         {'P': P, 'q': q, 'G_x': G_x, 'h_x': h_x, 'G_y': G_y, 'h_y': h_y, 'A_x': A_x, 'b_x': b_x, 'A_y': A_y,
+        #          'b_y': b_y})
 
         P = nearestPD(P / np.linalg.norm(P))
         cvxopt.solvers.options['maxiters'] = 1000
